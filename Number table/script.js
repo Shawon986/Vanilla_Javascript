@@ -5,6 +5,7 @@ const generateButton = document.getElementById('generate');
 
 generateButton.addEventListener('click', function(){
     const number = parseFloat(inputField.value);
+    tableBody.innerHTML ='';
     generateTable(number);
 });
 
@@ -19,23 +20,24 @@ function generateTable(number){
 
 function generateRow(number, i){
     const tableRow = document.createElement('tr');
-    const cell1 = document.createElement('td');
-    const cell2 = document.createElement('td');
-    const cell3 = document.createElement('td');
-    const cell4 = document.createElement('td');
-    const cell5 = document.createElement('td');
+    const cells = [];
+    for(let i = 0; i<=5; i++){
+        const cell = document.createElement('td');
+        cells.push(cell);
+    }
+    
 
-    cell1.innerText = number;
-    cell2.innerText = "x";
-    cell3.innerText = i;
-    cell4.innerText = "=";
-    cell5.innerText = number*i;
+    cells[0].innerText = number;
+    cells[1].innerText = "x";
+    cells[2].innerText = i;
+    cells[3].innerText = "=";
+    cells[4].innerText = number*i;
 
-    tableRow.appendChild(cell1);
-    tableRow.appendChild(cell2);
-    tableRow.appendChild(cell3);
-    tableRow.appendChild(cell4);
-    tableRow.appendChild(cell5);
+    tableRow.appendChild(cells[0]);
+    tableRow.appendChild(cells[1]);
+    tableRow.appendChild(cells[2]);
+    tableRow.appendChild(cells[3]);
+    tableRow.appendChild(cells[4]);
 
 
     return tableRow;
