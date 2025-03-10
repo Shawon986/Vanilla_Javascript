@@ -9,8 +9,11 @@ generateButton.addEventListener('click', function(){
 });
 
 function generateTable(number){
-    const tableRow = generateRow(number,1);
-    tableBody.appendChild(tableRow);
+    for(let i =1; i<=10; i++){
+
+        const tableRow = generateRow(number,i);
+        tableBody.appendChild(tableRow);
+    }
 } 
 
 
@@ -34,6 +37,6 @@ function generateRow(number, i){
     tableRow.appendChild(cell4);
     tableRow.appendChild(cell5);
 
-    
+
     return tableRow;
 }
