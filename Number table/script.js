@@ -33,11 +33,9 @@ function generateRow(number, i){
     cells[3].innerText = "=";
     cells[4].innerText = number*i;
 
-    tableRow.appendChild(cells[0]);
-    tableRow.appendChild(cells[1]);
-    tableRow.appendChild(cells[2]);
-    tableRow.appendChild(cells[3]);
-    tableRow.appendChild(cells[4]);
+    for (let i=0 ; i<cells.length ; i++){
+        tableRow.appendChild(cells[i]);
+    }
 
 
     return tableRow;
