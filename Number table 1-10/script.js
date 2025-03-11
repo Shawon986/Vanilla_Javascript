@@ -5,18 +5,25 @@ const secondRow = document.getElementById('second-row');
 
 
 generateButton.addEventListener('click', function(){
+
+    firstRow.innerHTML ='';
+    secondRow.innerHTML ='';
+
     for(let number = 1; number<=10; number++){
         const numberTable = getTable(number);
-
+        
         if(number<=5){
             firstRow.appendChild(numberTable);
         }else{
             secondRow.appendChild(numberTable);
         }
+
+        
     }
 });
 
 function getTable(number){
+    
     const numberTable = document.createElement('table');
     numberTable.classList = 'table-auto border border-slate-700 w-full';
     const tableBody = document.createElement('tbody');
