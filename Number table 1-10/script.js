@@ -1,4 +1,4 @@
-const inputField = document.getElementById('input-number');
+
 const generateButton = document.getElementById('generate');
 const firstRow = document.getElementById('first-row');
 const secondRow = document.getElementById('second-row');
@@ -40,4 +40,18 @@ function getTableRow(number,row){
         const cell = document.createElement('td');
         cells.push(cell);
     }
+
+    cells[0].innerText = number;
+    cells[1].innerText = " x ";
+    cells[2].innerText = row;
+    cells[3].innerText = " = ";
+    cells[4].innerText = number * row;
+
+    const tableRow = document.createElement('tr');
+
+    for(let cell = 0; cell < cells.length; cell++){
+        tableRow.appendChild(cells[cell]);
+    }
+
+    return tableRow;
 }
