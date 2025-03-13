@@ -11,7 +11,7 @@ table,th,tr,td{
     border-collapse: collapse;
 }
 tr{
-    background-color: rgb(245, 243, 243);
+    background-color: rgb(255, 255, 255);
 
 }
 td{
@@ -20,6 +20,7 @@ td{
 th{
     width: 20vw;
     height: 30px;
+    background-color: gainsboro;
 }
 table{
     width: 100%;
