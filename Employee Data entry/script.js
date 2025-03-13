@@ -31,12 +31,15 @@ const renderEmployeeData = (employees)=>{
 const getEmployeeRow = (employee)=>{
     const columnNames = Object.keys(employee);
 
-    const employeeRow = document.createElement('tr');
-    columnNames.forEach((columnName)=>{
+        const employeeRow = document.createElement('tr');
+
+        const columns = columnNames.map((columnName)=>{
         const column = document.createElement('td');
         column.innerText = employee[columnName];
-        employeeRow.appendChild(column);
+        
+        return column;
     });
+    employeeRow.append(...columns);
     return employeeRow;
 }
 
