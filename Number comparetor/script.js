@@ -20,3 +20,10 @@ function compare(){
     }
 }
 
+resetButton.addEventListener('click',resetAll);
+
+function resetAll(){
+    firstInput.value = '';
+    secondInput.value = '';
+    resultPlace.innerText = '';
+}
