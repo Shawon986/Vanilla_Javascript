@@ -11,13 +11,20 @@ function compare(){
     const firstValue = parseInt(firstInput.value);
     const secondValue = parseInt(secondInput.value);
 
-    if(firstValue>secondValue){
+    if(!firstValue){
+        alert("Please input first number");
+        return;
+    }if(!secondValue){
+        alert("Please input second number");
+        return;
+    }if(firstValue>secondValue){
         resultPlace.innerText = 'First number is greater than second number'
     }else if(firstValue<secondValue){
         resultPlace.innerText = 'First number is less than second number'
     }else{
         resultPlace.innerText = 'First number and second number are equal'
     }
+    
 }
 
 resetButton.addEventListener('click',resetAll);
