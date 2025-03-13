@@ -14,17 +14,18 @@ tr{
     background-color: rgb(255, 255, 255);
 
 }
-td{
-    padding: 7px;
+td:hover{
+    background-color: rgb(239, 239, 239);
 }
 th{
     width: 20vw;
     height: 30px;
-    background-color: gainsboro;
+    background-color: rgb(230, 244, 252);
+    padding: 4px;
 }
 table{
     width: 100%;
     box-shadow: 0 0 12px black;
-    
+    height: 250px;
 }
 
