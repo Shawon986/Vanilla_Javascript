@@ -3,14 +3,17 @@ const paperButton = document.getElementById('paper');
 const scissorButton = document.getElementById('scissor');
 const resultDisplay = document.getElementById('result');
 
-let computerMove = '';
-const randomNumber = Math.random();
+
 
 rockButton.addEventListener('click',rock);
 paperButton.addEventListener('click',paper);
 scissorButton.addEventListener('click',scissor);
 
 function compare(){
+
+    let computerMove = '';
+    const randomNumber = Math.random();
+
     if(randomNumber>0 && randomNumber<1/3){
         computerMove ="rock";
     }
@@ -19,11 +22,13 @@ function compare(){
     }else if(randomNumber>2/3 && randomNumber<1){
         computerMove = "scissor";
     };
+
+    return computerMove;
 }
 
 function rock(){
 
-    compare();
+    const computerMove = compare();
 
     let finalResult = '';
 
@@ -42,7 +47,7 @@ function rock(){
 }
 
 function paper(){
-    compare();
+    const computerMove = compare();
 
     let finalResult = '';
 
@@ -60,7 +65,7 @@ function paper(){
 
 function scissor(){
 
-    compare();
+    const computerMove = compare();
 
     let finalResult = '';
 
