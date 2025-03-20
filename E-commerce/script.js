@@ -61,6 +61,7 @@ let cart = [];
 
 
 const productGrid = document.getElementById('product-grid');
+const cartList = document.getElementById('cart-items');
 
 const renderProducts = (products)=>{
 
@@ -94,12 +95,17 @@ const getProductPrice =(price)=>{
     return productPrice;
 };
 
+const addProductToCart = (product)=>{
+    cart.push({...product, quantity: 1});
+}
+
 const getAddToCartBtn = (product)=>{
     const addToCartBtn = document.createElement('button');
     addToCartBtn.className = 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-2';
     addToCartBtn.innerText = 'Add to Cart';
     addToCartBtn.addEventListener('click',()=>{
-        cart.push(product);
+        addProductToCart(product);
+        renderCart(cart);
     })
     return addToCartBtn;
 }
@@ -118,6 +124,19 @@ const getProductCard = (product)=>{
     return productCard;
 };
 
+const renderCart = (cart)=>{
+    cartList.innerHTML = '';
+    cart.forEach((cartItems)=>{
+        const cartListItem = getCatrListItem(cartItems);
+        cartList.append(cartListItem);
+    });
+}
 
+const getCatrListItem= (cartItems)=>{
+    const cartListItem = document.createElement('li');
+    cartListItem.innerText = `${cartItems.name} * ${cartItems.quantity}`;
+    return cartListItem;
+}
 
 renderProducts(products);
+renderCart(cart);
