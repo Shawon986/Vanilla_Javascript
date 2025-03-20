@@ -1,10 +1,10 @@
 products = [
     {
         id: 1,
-        name: 'All-in-One Printer',
-        price: 150,
+        name: 'Gaming Laptop',
+        price: 3500,
         image: '',
-        categories: ['Peripherals', 'Printers'],
+        categories: ['Laptops', 'Gaming'],
     },
     {
         id: 2,
