@@ -175,11 +175,24 @@ const removeCartItem = (cartItem) => {
   };
 };
 
+const getAddProductQuantity = (cartItem)=>{
+    const addProductQuantity = document.createElement('button');
+    addProductQuantity.innerText = 'Add';
+  addProductQuantity.className = "text-green-500 ml-2";
+    addProductQuantity.addEventListener('click',()=>{
+        cartItem.quantity++ ;
+        renderCart(cart);
+    })
+    return addProductQuantity;
+
+}
+
 const getCatrListItem = (cartItems) => {
   const cartListItem = document.createElement("li");
   cartListItem.innerText = `${cartItems.name} * ${cartItems.quantity}`;
   const removeCartBtn = getRemoveCartBtn(cartItems);
-  cartListItem.append(removeCartBtn);
+  const addProductQuantity = getAddProductQuantity(cartItems);
+  cartListItem.append(addProductQuantity,removeCartBtn);
   return cartListItem;
 };
 
