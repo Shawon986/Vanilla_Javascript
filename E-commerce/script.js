@@ -96,7 +96,19 @@ const getProductPrice =(price)=>{
 };
 
 const addProductToCart = (product)=>{
-    cart.push({...product, quantity: 1});
+   const cartItemIndex = cart.findIndex((cartItem)=>{
+    if(cartItem.id === product.id){
+        return true;
+    }else{
+        return false;
+    }
+   });
+
+   if(cartItemIndex === -1){
+    cart.push({...product, quantity :1})
+   }else{
+    cart[cartItemIndex].quantity++ ;
+   }
 }
 
 const getAddToCartBtn = (product)=>{
