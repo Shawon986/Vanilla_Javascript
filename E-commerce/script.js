@@ -1,0 +1,58 @@
+products = [
+    {
+        id: 1,
+        name: 'All-in-One Printer',
+        price: 150,
+        image: '',
+        categories: ['Peripherals', 'Printers'],
+    },
+    {
+        id: 2,
+        name: 'Wireless Mouse',
+        price: 50,
+        image: '',
+        categories: ['Peripherals', 'Accessories'],
+    },
+    {
+        id: 3,
+        name: 'Mechanical Keyboard',
+        price: 350,
+        image: '',
+        categories: ['Peripherals', 'Accessories'],
+    },
+    {
+        id: 4,
+        name: 'External Hard Drive',
+        price: 120,
+        image: '',
+        categories: ['Accessories', 'Storage'],
+    },
+    {
+        id: 5,
+        name: 'Graphics Card',
+        price: 290,
+        image: '',
+        categories: ['Components', 'Gaming'],
+    },
+    {
+        id: 6,
+        name: 'Portable SSD',
+        price: 190,
+        image: '',
+        categories: ['Storage', 'Accessories'],
+    },
+    {
+        id: 7,
+        name: 'Gaming Monitors',
+        price: 350,
+        image: '',
+        categories: ['Gaming', 'Monitors'],
+    },
+    {
+        id: 8,
+        name: 'All-in-One Printer',
+        price: 150,
+        image: '',
+        categories: ['Peripherals', 'Printers'],
+    },
+]
