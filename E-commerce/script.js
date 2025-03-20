@@ -163,6 +163,12 @@ const removeCartItem = (cartItem) => {
     return;
   }
 
+  if(cart[cartItemIndex].quantity>1){
+    cart[cartItemIndex].quantity --;
+    renderCart(cart);
+    return;
+  }
+
   if (confirm("Are you sure?")) {
     cart.splice(cartItemIndex, 1);
     renderCart(cart);
