@@ -55,4 +55,47 @@ products = [
         image: '',
         categories: ['Peripherals', 'Printers'],
     },
-]
+];
+
+
+const productGrid = document.getElementById('product-grid');
+
+const renderProducts = (products)=>{
+
+    const productCards = products.map((product)=>{
+        const productCard = getProductCard(product);
+        return productCard;
+    });
+    productGrid.append(...productCards);
+
+};
+
+const getProductName = (name)=>{
+    const productName = document.createElement('h3');
+    productName.className = 'text-lg font-semibold' ;
+    productName.innerText = name;
+    return productName;
+};
+
+const getProductPrice =(price)=>{
+    const productPrice = document.createElement('p');
+    productPrice.className = 'text-gray-700';
+    productPrice.innerText = price;
+    return productPrice;
+}
+
+const getProductCard = (product)=>{
+    const productCard = document.createElement('div');
+    productCard.className = 'bg-white p-4 rounded shadow';
+
+    const productName = getProductName(product.name);
+    const productPrice = getProductPrice(product.price);
+
+    productCard.append(productName,productPrice);
+
+    return productCard;
+};
+
+
+
+renderProducts(products);
