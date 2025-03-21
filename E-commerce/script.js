@@ -61,6 +61,7 @@ let cart = [];
 
 const productGrid = document.getElementById("product-grid");
 const cartList = document.getElementById("cart-items");
+const checkoutBtn = document.getElementById('checkout-btn');
 
 const renderProducts = (products) => {
   const productCards = products.map((product) => {
@@ -198,3 +199,7 @@ const getCatrListItem = (cartItems) => {
 
 renderProducts(products);
 renderCart(cart);
+checkoutBtn.addEventListener('click',()=>{
+  cart = [];
+  renderCart(cart);
+})
