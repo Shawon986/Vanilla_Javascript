@@ -62,6 +62,7 @@ let cart = [];
 const productGrid = document.getElementById("product-grid");
 const cartList = document.getElementById("cart-items");
 const checkoutBtn = document.getElementById('checkout-btn');
+const totalPrice = document.getElementById('total-price');
 
 const renderProducts = (products) => {
   const productCards = products.map((product) => {
@@ -144,6 +145,13 @@ const renderCart = (cart) => {
     const cartListItem = getCatrListItem(cartItems);
     cartList.append(cartListItem);
   });
+
+  const totalPrices = cart.reduce((acc,currentItem)=>{
+    const subTotal = currentItem.quantity * currentItem.price;
+    return acc + subTotal;
+  },0)
+
+  totalPrice.innerText = `Total = $${totalPrices}`
 };
 
 const getRemoveCartBtn = (cartItem) => {
@@ -190,7 +198,7 @@ const getAddProductQuantity = (cartItem)=>{
 
 const getCatrListItem = (cartItems) => {
   const cartListItem = document.createElement("li");
-  cartListItem.innerText = `${cartItems.name} * ${cartItems.quantity}`;
+  cartListItem.innerText = `${cartItems.name} * ${cartItems.quantity} * $${cartItems.price}`;
   const removeCartBtn = getRemoveCartBtn(cartItems);
   const addProductQuantity = getAddProductQuantity(cartItems);
   cartListItem.append(addProductQuantity,removeCartBtn);
