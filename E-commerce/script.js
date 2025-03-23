@@ -78,6 +78,7 @@ const productGrid = document.getElementById("product-grid");
 const cartList = document.getElementById("cart-items");
 const checkoutBtn = document.getElementById('checkout-btn');
 const totalPrice = document.getElementById('total-price');
+const categoryFilters = document.getElementById('category-filters');
 
 const renderProducts = (products) => {
   const productCards = products.map((product) => {
@@ -223,6 +224,31 @@ const getCatrListItem = (cartItems) => {
   return cartListItem;
 };
 
+const getUniqueCategories = (products)=>{
+  const flattenCategories = products.map((product)=> product.categories).flat();
+
+  return [...new Set(flattenCategories)];
+};
+
+const getCategoryBtn = (category)=>{
+  const categoryBtn = document.createElement('button');
+  categoryBtn.innerText = category;
+  categoryBtn.className = 'bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded mr-2';
+
+  return categoryBtn;
+}
+
+const renderCategories = (products)=>{
+  const categories = getUniqueCategories(products);
+  const categoryBtns = categories.map((category)=>{
+    const categoryBtn = getCategoryBtn(category);
+    return categoryBtn;
+  });
+
+  categoryFilters.append(...categoryBtns);
+}
+
+renderCategories(products);
 renderProducts(products);
 renderCart(cart);
 checkoutBtn.addEventListener('click',()=>{
