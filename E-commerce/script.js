@@ -79,6 +79,8 @@ const cartList = document.getElementById("cart-items");
 const checkoutBtn = document.getElementById('checkout-btn');
 const totalPrice = document.getElementById('total-price');
 const categoryFilters = document.getElementById('category-filters');
+const clearFilters = document.getElementById('clear-filters-btn');
+
 
 let filters = new Set();
 
@@ -240,7 +242,7 @@ const getCategoryBtn = (category)=>{
   if(filters.has(category)){
     categoryBtn.classList.add('bg-blue-600','text-white');
   }else{
-    categoryBtn.classList.add('bg-gray-200','text-gray-800');
+    categoryBtn.classList.add('bg-gray-300','text-gray-800');
   }
 
   categoryBtn.addEventListener('click', ()=>{
@@ -274,4 +276,9 @@ renderCart(cart);
 checkoutBtn.addEventListener('click',()=>{
   cart = [];
   renderCart(cart);
+});
+
+clearFilters.addEventListener('click',()=>{
+  filters.clear();
+  renderCategories(products);
 })
