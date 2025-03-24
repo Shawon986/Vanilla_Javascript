@@ -80,6 +80,8 @@ const checkoutBtn = document.getElementById('checkout-btn');
 const totalPrice = document.getElementById('total-price');
 const categoryFilters = document.getElementById('category-filters');
 
+let filters = new Set();
+
 const renderProducts = (products) => {
   const productCards = products.map((product) => {
     const productCard = getProductCard(product);
@@ -233,7 +235,25 @@ const getUniqueCategories = (products)=>{
 const getCategoryBtn = (category)=>{
   const categoryBtn = document.createElement('button');
   categoryBtn.innerText = category;
-  categoryBtn.className = 'bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-2 px-4 rounded mr-2';
+  categoryBtn.className = 'hover:bg-gray-300  font-semibold py-2 px-4 rounded mr-2';
+
+  if(filters.has(category)){
+    categoryBtn.classList.add('bg-blue-600','text-white');
+  }else{
+    categoryBtn.classList.add('bg-gray-200','text-gray-800');
+  }
+
+  categoryBtn.addEventListener('click', ()=>{
+
+    if(filters.has(category)){
+      filters.delete(category)
+    }else{
+
+      filters.add(category);
+    }
+
+    renderCategories(products);
+  })
 
   return categoryBtn;
 }
@@ -244,7 +264,7 @@ const renderCategories = (products)=>{
     const categoryBtn = getCategoryBtn(category);
     return categoryBtn;
   });
-
+  categoryFilters.innerHTML = '';
   categoryFilters.append(...categoryBtns);
 }
 
